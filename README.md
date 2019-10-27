@@ -27,3 +27,7 @@ $ heroku logs --tail
 
 # Dev server - Nodemon + config in package.json
 $ npm run backend
+
+# Run server
+$ node --inspect index.js
+$ node index.js
