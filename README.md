@@ -5,5 +5,7 @@ Test Dialogflow Chatbot
 $ node -v
 
 # Install - Express
+$ npm init
+$ npm install express --save
 
 reactbot
