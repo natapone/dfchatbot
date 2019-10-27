@@ -24,3 +24,6 @@ $ git push heroku master
 
 # Heroku - Debug
 $ heroku logs --tail
+
+# Dev server - Nodemon + config in package.json
+$ npm run backend
