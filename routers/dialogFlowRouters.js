@@ -14,11 +14,13 @@ module.exports = app => {
 
     // Sent text to DialogFlow
     app.post('/api/df_text_query', (req, res) => {
+        console.log(req.body);
+
         const request = {
             session: sessionPath,
             queryInput: {
                 text: {
-                    test: req.body.text,
+                    text: req.body.text,
                     languageCode: config.dialogFlowSessionLanguageCode,
                 }
             }
@@ -28,8 +30,10 @@ module.exports = app => {
             .then(responses => {
                 console.log('Detected intent');
                 const result = responses[0].queryResult;
+                console.log(result);
+
                 console.log(`-- Query: ${result.queryText}`);
-                console.log(`-- Response: ${result.fullfillmentText}`);
+                console.log(`-- Response: ${result.fulfillmentText}`);
                 if(result.intent) {
                     console.log(`-- Intent: ${result.intent.desplayName}`);
                 } else {
@@ -39,9 +43,6 @@ module.exports = app => {
             .catch(err => {
                 console.error('ERROR:', err);
             });
-
-
-
         res.send({'do': 'text query'});
     });
 

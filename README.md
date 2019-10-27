@@ -31,3 +31,6 @@ $ npm run backend
 # Run server
 $ node --inspect index.js
 $ node index.js
+
+# Test POST
+$ curl -H "Content-Type: application/json" --data '{"text":"set meeting"}' -X POST http://localhost:5000/api/df_text_query
