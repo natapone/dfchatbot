@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/natapone/reactbot/issues"
   },
-  "homepage": "https://github.com/natapone/reactbot#readme"
+  "homepage": "https://github.com/natapone/reactbot#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
