@@ -21,3 +21,6 @@ https://thawing-reaches-06931.herokuapp.com/ | https://git.heroku.com/thawing-re
 
 # Heroku - Push to server
 $ git push heroku master
+
+# Heroku - Debug
+$ heroku logs --tail
