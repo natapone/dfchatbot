@@ -1,3 +1,12 @@
+const dialogflow = require('dialogflow');
+const config = require('../config/keys');
+
+const sessionClient = new dialogflow.SessionsClient();
+const sessionPath = sessionClient.sessionPath(
+                        config.googleProjectID, 
+                        config.dialogFlowSessionID
+                    );
+
 module.exports = app => {
     app.get('/', (req, res) => {
         res.send({'hello': 'test'});
