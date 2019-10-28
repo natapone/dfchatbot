@@ -16,8 +16,13 @@ module.exports = app => {
     });
 
     // Sent event to DialogFlow
-    app.post('/api/df_event_query', (req, res) => {
-        res.send({'do': 'event query'});
+    app.post('/api/df_event_query', async (req, res) => {
+        var datetime = new Date();
+        console.log('----df_event_query call ' , datetime);
+        console.log(req.body);
+
+        let responses = await chatbot.eventQuery(req.body.event, req.body.parameters);
+        res.send(responses[0].queryResult);
     });
 
 }

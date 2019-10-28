@@ -32,5 +32,11 @@ $ npm run backend
 $ node --inspect index.js
 $ node index.js
 
-# Test POST
+# Test POST - text
 $ curl -H "Content-Type: application/json" --data '{"text":"set meeting"}' -X POST http://localhost:5000/api/df_text_query
+
+# Test POST - event
+Need to set events in Dialogflow
+$ curl -H "Content-Type: application/json" --data '{"event":"Welcome"}' -X POST http://localhost:5000/api/df_event_query
+
+curl -H "Content-Type: application/json" --data '{"event":"schedule_appointment"}' -X POST http://localhost:5000/api/df_event_query
