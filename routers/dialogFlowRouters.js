@@ -13,7 +13,9 @@ module.exports = app => {
     });
 
     // Sent text to DialogFlow
-    app.post('/api/df_text_query', (req, res) => {
+    app.post('/api/df_text_query', async (req, res) => {
+        var datetime = new Date();
+        console.log('-- ' , datetime);
         console.log(req.body);
 
         const request = {
@@ -25,25 +27,11 @@ module.exports = app => {
                 }
             }
         };
-        sessionClient
-            .detectIntent(request)
-            .then(responses => {
-                console.log('Detected intent');
-                const result = responses[0].queryResult;
-                console.log(result);
-
-                console.log(`-- Query: ${result.queryText}`);
-                console.log(`-- Response: ${result.fulfillmentText}`);
-                if(result.intent) {
-                    console.log(`-- Intent: ${result.intent.desplayName}`);
-                } else {
-                    console.log('-- No intent matched!');
-                }
-            })
-            .catch(err => {
-                console.error('ERROR:', err);
-            });
-        res.send({'do': 'text query'});
+        let responses = await sessionClient
+            .detectIntent(request);
+            
+        // res.send({'do': 'text query'});
+        res.send(responses[0].queryResult);
     });
 
     // Sent event to DialogFlow
