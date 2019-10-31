@@ -40,3 +40,6 @@ Need to set events in Dialogflow
 $ curl -H "Content-Type: application/json" --data '{"event":"Welcome"}' -X POST http://localhost:5000/api/df_event_query
 
 curl -H "Content-Type: application/json" --data '{"event":"schedule_appointment"}' -X POST http://localhost:5000/api/df_event_query
+
+curl -H "Content-Type: application/json" --data '{"event":"schedule_appointment"}' -X POST https://thawing-reaches-06931.herokuapp.com/api/df_event_query
+
