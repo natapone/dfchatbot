@@ -56,8 +56,8 @@ module.exports = {
         let responses = await sessionClient.detectIntent(request);
         responses = await self.handleAction(responses)
 
-        console.log("---- eventQuery request");
-        console.log(request);
+        // console.log("---- eventQuery request");
+        // console.log(request);
 
         return responses;
     },
