@@ -43,3 +43,19 @@ curl -H "Content-Type: application/json" --data '{"event":"schedule_appointment"
 
 curl -H "Content-Type: application/json" --data '{"event":"schedule_appointment"}' -X POST https://thawing-reaches-06931.herokuapp.com/api/df_event_query
 
+# Start React app
+$ cd project/reactbot/client/
+$ npm run start
+
+http://localhost:3000/
+
+# Start dev server concurrently
+reactbot$ npm run dev
+
+
+
+------
+
+
+
+
