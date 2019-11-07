@@ -4,6 +4,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import logo from '../logo.svg';
 import '../App.css';
 
+import Header from './Header';
 import Landing from './pages/Landing';
 import About from './pages/About';
 import Shop from './shop/Shop';
@@ -13,6 +14,7 @@ const App = () => {
     <div>
       <BrowserRouter>
         <div>
+          <Header/>
           <Route exact path="/" component={Landing} />
           <Route exact path="/about" component={About} />
           <Route exact path="/shop" component={Shop} />
