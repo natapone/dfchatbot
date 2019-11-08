@@ -8,18 +8,25 @@ class Chatbot extends Component {
   constructor(props) {
     super(props);
 
+    this._handleInputKeyPress = this._handleInputKeyPress.bind(this);
     this.state = {
       messages: []
     }
   }
+
+  _handleInputKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.df_text_query(e.target.value);
+      e.target.value = '';
+    }
+  }
+
   async df_text_query (text) {
     let says = {
       speaks: 'me',
       msg: {
         text: {
-          text: {
-            text: text
-          }
+          text: text
         }
       }
     };
@@ -41,11 +48,15 @@ class Chatbot extends Component {
 
     for (let msg of res.data.fulfillmentMessages) {
       let says = {
-        speaks: 'me',
+        speaks: 'bot',
         msg: msg
       };
       this.setState({ messages: [...this.state.messages, says]});
     }
+  }
+
+  componentDidMount() {
+    this.df_event_query('Welcome');
   }
 
   renderMessages(stateMessages) {
@@ -64,7 +75,7 @@ class Chatbot extends Component {
         <div id="chatbot" style={{ height: '100%', width:'100%', overflow: 'auto'}}>
           <h2>Chatbot</h2>
           {this.renderMessages(this.state.messages)}
-          <input type="text"/>
+          <input type="text" onKeyPress={this._handleInputKeyPress} />
         </div>
       </div>
     )
